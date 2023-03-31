@@ -1,10 +1,10 @@
 alembic==1.10.2
+ariadne==0.19.1
 Flask==2.2.3
-Flask_GraphQL==2.0.1
 Flask_Migrate==4.0.4
 flask_sqlalchemy==3.0.3
-graphene==2.1.9
-graphene_sqlalchemy==2.3.0
+graphql==0.0.4
+graphql_core==3.2.3
+requests==2.28.2
 SQLAlchemy==2.0.7
-
-ariadne~=0.19.1
+psycopg2-binary==2.9.5

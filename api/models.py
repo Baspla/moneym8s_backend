@@ -1,7 +1,7 @@
 from sqlalchemy import ForeignKey, Integer, Float, DateTime, String, Boolean
 from sqlalchemy.orm import mapped_column, relationship
 
-from database import db
+from api.database import db
 
 
 class User(db.Model):

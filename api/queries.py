@@ -4,7 +4,7 @@ from ariadne import ObjectType, SchemaDirectiveVisitor
 from graphql import default_field_resolver, GraphQLError, GraphQLObjectType
 
 from config import DEBUG
-from models import User, LogEntry, Group, Membership, Transaction, TransactionSplit
+from api.models import User, LogEntry, Group, Membership, Transaction, TransactionSplit
 
 
 class DebugDirective(SchemaDirectiveVisitor):
