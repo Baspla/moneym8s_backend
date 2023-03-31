@@ -1,0 +1,10 @@
+alembic==1.10.2
+Flask==2.2.3
+Flask_GraphQL==2.0.1
+Flask_Migrate==4.0.4
+flask_sqlalchemy==3.0.3
+graphene==2.1.9
+graphene_sqlalchemy==2.3.0
+SQLAlchemy==2.0.7
+
+ariadne~=0.19.1

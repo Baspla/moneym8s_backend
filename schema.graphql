@@ -1,0 +1,85 @@
+schema {
+    query: Query
+}
+
+directive @DEBUG on FIELD_DEFINITION
+
+type Query {
+    user(id: ID!): User
+    group(id: ID!): Group
+    membership(id: ID!): Membership
+    transaction(id: ID!): Transaction
+    transactionSplit(id: ID!): TransactionSplit
+    logEntry(id: ID!): LogEntry @DEBUG
+    users: [User]
+    groups: [Group]
+    memberships: [Membership]
+    transactions: [Transaction]
+    transactionSplits: [TransactionSplit]
+    logEntries: [LogEntry] @DEBUG
+}
+
+type User {
+    id: ID!
+    username: String!
+    guard_id: String!
+    created_at: String!
+    memberships: [Membership]
+    groups: [Group]
+    logs: [LogEntry]
+}
+
+type Group{
+    id: ID!
+    name: String!
+    is_personal: Boolean!
+    invite_code: String!
+    created_at: String!
+    members: [Membership]
+    transactions: [Transaction]
+    logs: [LogEntry]
+}
+
+type Membership {
+    id: ID!
+    user: User!
+    group: Group!
+    created_at: String!
+    is_admin: Boolean!
+    issued_transactions: [Transaction]
+    paid_transactions: [Transaction]
+    splits: [TransactionSplit]
+    logs: [LogEntry]
+}
+
+type Transaction {
+    id: ID!
+    group: Group!
+    created_at: String!
+    description: String!
+    total: Float!
+    issuer: Membership!
+    paid_by: Membership!
+    splits: [TransactionSplit]
+    logs: [LogEntry]
+}
+
+type TransactionSplit {
+    id: ID!
+    transaction: Transaction!
+    member: Membership!
+    amount: Float!
+    logs: [LogEntry]
+}
+
+type LogEntry {
+    id: ID!
+    created_at: String!
+    user: User!
+    group: Group!
+    membership: Membership!
+    transaction: Transaction!
+    transaction_split: TransactionSplit!
+    action: String!
+    description: String!
+}
