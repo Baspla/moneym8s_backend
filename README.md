@@ -1,5 +1,5 @@
 # MoneyM8s Backend
-A simple app to help you keep track of your and your friends' money.
+A simple app to help you keep track of your and your mates' money.
 
 ## What's the plan?
 A RESTful API that will allow you to create groups, add friends, and keep track of your money.
