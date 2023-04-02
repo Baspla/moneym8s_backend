@@ -1,8 +1,26 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 directive @DEBUG on FIELD_DEFINITION
+
+type Mutation {
+    createGroup(name: String!, is_personal: Boolean!, invite_code: String!): Group
+    createMembership(user_id: ID!, group_id: ID!, is_admin: Boolean!): Membership
+    createTransaction(group_id: ID!, description: String!, total: Float!, issuer_id: ID!, paid_by_id: ID!): Transaction
+    createTransactionSplit(transaction_id: ID!, member_id: ID!, amount: Float!): TransactionSplit
+    updateUser(id: ID!, username: String, guard_id: String): User
+    updateGroup(id: ID!, name: String, is_personal: Boolean, invite_code: String): Group
+    updateMembership(id: ID!, user_id: ID, group_id: ID, is_admin: Boolean): Membership
+    updateTransaction(id: ID!, group_id: ID, description: String, total: Float, issuer_id: ID, paid_by_id: ID): Transaction
+    updateTransactionSplit(id: ID!, transaction_id: ID, member_id: ID, amount: Float): TransactionSplit
+    deleteUser(id: ID!): User
+    deleteGroup(id: ID!): Group
+    deleteMembership(id: ID!): Membership
+    deleteTransaction(id: ID!): Transaction
+    deleteTransactionSplit(id: ID!): TransactionSplit
+}
 
 type Query {
     user(id: ID!): User
